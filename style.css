@@ -1,0 +1,481 @@
+/* 全局样式 */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #8BC34A;
+    --accent-color: #FF9800;
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --border-color: #ddd;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+header h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+/* 记录区域 */
+.record-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.record-section:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+.record-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.mood-selector {
+    margin-bottom: 20px;
+}
+
+.mood-selector label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.mood-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.mood-btn {
+    padding: 10px 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 25px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.mood-btn:hover {
+    border-color: var(--primary-color);
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+.mood-btn.active {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.note-input {
+    margin-bottom: 20px;
+}
+
+.note-input label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.note-input textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    resize: vertical;
+    min-height: 100px;
+    font-size: 1rem;
+}
+
+#submit-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#submit-btn:hover {
+    background-color: #45a049;
+}
+
+#submit-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* 植物区域 */
+.plant-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.plant-section:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+.plant-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.plant-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.plant {
+    position: relative;
+    width: 100px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.plant-stem {
+    width: 10px;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    transition: height 1s ease;
+    height: 0;
+}
+
+.plant-leaves {
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    background-color: #8BC34A;
+    border-radius: 50% 50% 0 0;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.plant-leaves::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    background-color: #8BC34A;
+    border-radius: 50% 50% 0 0;
+    transform: rotate(180deg);
+    top: 10px;
+    left: -30px;
+}
+
+.plant-flower {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #FF9800;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.plant-flower::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #FF9800;
+    border-radius: 50%;
+    transform: rotate(45deg);
+}
+
+.plant-info {
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+/* 历史植物区域 */
+.history-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.history-section:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+.history-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.plants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 20px;
+}
+
+.plant-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.plant-item:hover {
+    background-color: rgba(76, 175, 80, 0.05);
+    transform: translateY(-3px);
+}
+
+.plant-item .plant {
+    width: 60px;
+    height: 150px;
+}
+
+.plant-item .plant-stem {
+    width: 6px;
+}
+
+.plant-item .plant-leaves {
+    width: 30px;
+    height: 20px;
+}
+
+.plant-item .plant-leaves::before {
+    width: 30px;
+    height: 20px;
+    left: -15px;
+}
+
+.plant-item .plant-flower {
+    width: 20px;
+    height: 20px;
+}
+
+.plant-item .plant-flower::before {
+    width: 20px;
+    height: 20px;
+}
+
+.plant-item .plant-date {
+    font-size: 0.8rem;
+    color: #666;
+    text-align: center;
+}
+
+/* 响应式设计 */
+@media (min-width: 768px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .record-section {
+        grid-column: 1;
+    }
+    
+    .plant-section {
+        grid-column: 2;
+    }
+    
+    .history-section {
+        grid-column: 1 / -1;
+    }
+}
+
+.link-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.link-section:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+.link-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.link-section a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link-section a:hover {
+    text-decoration: underline;
+}
+
+@media (min-width: 1024px) {
+    .plants-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+/* 动画效果 */
+@keyframes grow {
+    from {
+        height: 0;
+    }
+    to {
+        height: 100%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.plant.stage-1 .plant-stem {
+    height: 30%;
+}
+
+.plant.stage-2 .plant-stem {
+    height: 50%;
+}
+
+.plant.stage-3 .plant-stem {
+    height: 70%;
+}
+
+.plant.stage-4 .plant-stem {
+    height: 90%;
+}
+
+.plant.stage-5 .plant-stem {
+    height: 100%;
+}
+
+.plant.stage-6 .plant-stem {
+    height: 100%;
+}
+
+.plant.stage-7 .plant-stem {
+    height: 100%;
+}
+
+.plant.stage-3 .plant-leaves {
+    opacity: 1;
+    top: 40%;
+    animation: fadeIn 0.5s ease;
+}
+
+.plant.stage-5 .plant-flower {
+    opacity: 1;
+    top: 10%;
+    animation: fadeIn 0.5s ease;
+}
+
+.plant.stage-7 .plant-flower {
+    opacity: 1;
+    top: 5%;
+    animation: fadeIn 0.5s ease;
+}
+
+/* 加载动画 */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(76, 175, 80, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 消息提示 */
+.message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.message.success {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.message.error {
+    background-color: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+    border: 1px solid #f44336;
+}

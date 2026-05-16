@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>情绪花园 - 记录心情，培育植物</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>情绪花园</h1>
+            <p>每天记录心情，培育属于你的心情植物</p>
+        </header>
+        
+        <main>
+            <section class="record-section">
+                <h2>今日心情记录</h2>
+                <form id="mood-form">
+                    <div class="mood-selector">
+                        <label>选择心情：</label>
+                        <div class="mood-options">
+                            <button type="button" class="mood-btn" data-mood="happy">😊 开心</button>
+                            <button type="button" class="mood-btn" data-mood="calm">😌 平静</button>
+                            <button type="button" class="mood-btn" data-mood="tired">😴 疲惫</button>
+                            <button type="button" class="mood-btn" data-mood="sad">😢 难过</button>
+                            <button type="button" class="mood-btn" data-mood="angry">😠 愤怒</button>
+                        </div>
+                    </div>
+                    <div class="note-input">
+                        <label for="note">备注（可选）：</label>
+                        <textarea id="note" placeholder="记录一下今天的心情..."></textarea>
+                    </div>
+                    <button type="submit" id="submit-btn">记录心情</button>
+                </form>
+            </section>
+            
+            <section class="plant-section">
+                <h2>本周植物</h2>
+                <div class="plant-container">
+                    <div class="plant" id="current-plant">
+                        <div class="plant-stem"></div>
+                        <div class="plant-leaves"></div>
+                        <div class="plant-flower"></div>
+                    </div>
+                    <div class="plant-info">
+                        <p>本周生长进度：<span id="growth-progress">0%</span></p>
+                        <p>已记录天数：<span id="days-recorded">0</span>/7</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="history-section">
+                <h2>历史植物</h2>
+                <div class="plants-grid" id="plants-history">
+                    <!-- 历史植物将通过JavaScript动态生成 -->
+                </div>
+            </section>
+
+            <section class="link-section">
+                <h2>常用链接</h2>
+                <p>
+                    <a href="https://example.com" target="_blank" rel="noopener noreferrer">点击这里访问示例页面</a>
+                </p>
+                <p>
+                    <a href="index.html">返回首页</a>
+                </p>
+            </section>
+        </main>
+        
+        <footer>
+            <p>© 2026 情绪花园 - 记录每一天的心情</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
